@@ -63,31 +63,7 @@
 
 html{
   background-color: #071022;
-  cursor: none;
+
   pointer-events: visibleFill;
 }
 
-
-#cursor {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #fff;
-  background: rgba(255, 255, 255, 0.562);
-  border-radius: 50%;
-  position: absolute;
-  pointer-events: none;
-  transition: background 0.5s ease;
-}
-
-#cursor.hover {
-  background: rgba(0, 0, 0, 0);
-}
-
-a {
-  cursor: none;
-}
-
-li{
-  
-    cursor: none
-}

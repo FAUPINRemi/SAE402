@@ -22,11 +22,11 @@ function Navbar() {
       </div>
       <div className="wrapper">
         <ul>
-          <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
+          <li className='home'><Link to="/" onClick={toggleMenu}>Home</Link></li>
           <br></br>
-          <li><Link to="/dogon-mali" onClick={toggleMenu}>Dogons</Link></li>
+          <li className='link'><Link to="/dogon-mali" onClick={toggleMenu}>Dogons</Link></li>
           <br></br>
-          <li><Link to="/users" onClick={toggleMenu}>Users</Link></li>
+          <li className='link'><Link to="/users" onClick={toggleMenu}>Users</Link></li>
         </ul>
       </div>
       </div>
