@@ -238,7 +238,7 @@ ul {
     opacity: 0;
     transition: all 0.3s ease;
     transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-    cursor: pointer; /* Ajout de la propriété cursor */
+    
   }
 
   .containernav {
@@ -247,5 +247,10 @@ ul {
     justify-content: flex-start;
   }
 
+  .logo_navbar{
+    width: 70px;
+    height: auto;
+    padding-top: 5px;
+  }
 
   

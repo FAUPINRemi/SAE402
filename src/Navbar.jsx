@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './css/navbar.css';
-import icon from './img/icon_discorvem_white.png';
+import icon from './img/logodiscovermgood.webp';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,7 @@ function Navbar() {
         <ul>
           <li className='home'><Link to="/" onClick={toggleMenu}>Home</Link></li>
           <br></br>
-          <li className='link'><Link to="/dogon-mali" onClick={toggleMenu}>Dogons</Link></li>
+          <li className='link'><Link to="/dogon-mali" onClick={toggleMenu}>Les Dogons</Link></li>
           <br></br>
           <li className='link'><Link to="/users" onClick={toggleMenu}>Users</Link></li>
         </ul>
