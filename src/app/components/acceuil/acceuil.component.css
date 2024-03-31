@@ -1,0 +1,30 @@
+@keyframes blink {
+    0% {
+      fill: #000;
+      text-shadow: none;
+    }
+    50% {
+      fill: rgb(255, 0, 0);
+      text-shadow: 0 0 10px #f00, 0 0 20px #f00, 0 0 30px #f00, 0 0 40px #f00;
+    }
+    100% {
+      fill: #000;
+      text-shadow: none;
+    }
+  }
+  
+  .blink {
+    animation: blink 2s linear infinite;
+  }
+
+
+*{
+    background: #040113;
+}
+
+.svg-container {
+  width: 100%;
+  height: 100%;
+  
+}
+
