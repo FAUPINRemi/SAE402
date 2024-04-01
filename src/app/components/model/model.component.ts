@@ -1,8 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { PerspectiveCamera, Scene, WebGLRenderer, AmbientLight, Vector3 } from 'three';
-import { TextureLoader } from 'three';
+import { GLTFLoader } from 'three-stdlib';
+import { OrbitControls } from 'three-stdlib';
+import { PerspectiveCamera, Scene, WebGLRenderer, AmbientLight, Vector3, TextureLoader } from 'three';
 
 @Component({
   selector: 'app-model',
@@ -21,7 +20,6 @@ export class ModelComponent implements OnInit, AfterViewInit {
   isLoading = true;
   isRotating = true;
 
-
   showContent = false;
   buttonText = 'Voir plus';
 
@@ -32,7 +30,7 @@ export class ModelComponent implements OnInit, AfterViewInit {
     loader.load('../../../assets/img/bg_model3D.jpg', (texture) => {
       this.scene.background = texture;
     });
-  
+
     this.renderer.setClearColor(0x040113); 
     this.addLights();
     this.loadModel();
@@ -50,35 +48,32 @@ export class ModelComponent implements OnInit, AfterViewInit {
     this.animate();
   }
 
-
   toggleContent() {
     this.showContent = !this.showContent;
     this.buttonText = this.showContent ? 'Voir moins' : 'Voir plus';
   }
 
-
-
   loadModel(): void {
     var loader = new GLTFLoader();
-    loader.load( '../../../assets/model3D/MasqueDogon.glb', ( gltf ) => {
+    loader.load( '../../../assets/model3D/MasqueDogon.glb', (gltf: any) => {
       this.masque = gltf.scene;
       this.masque.scale.set(6, 6, 6);
       this.masque.position.y = -90; 
       this.masque.position.x = -90; 
       this.scene.add(this.masque);
-  
+
       this.camera.position.set(0, 100, 450); 
       this.camera.lookAt(new Vector3(0, 0, 0));
-  
+
       this.controls.target.copy(this.masque.position);
       this.controls.update();
-  
+
       this.isLoading = false; 
-  
+
       this.zoomIn();
     });
   }
-  
+
   zoomIn(): void {
     if (this.camera.position.z > 0) {
       this.camera.position.z -= 2; 
@@ -89,11 +84,11 @@ export class ModelComponent implements OnInit, AfterViewInit {
   animate(): void {
     requestAnimationFrame(() => this.animate());
     this.controls.update();
-  
+
     if (this.masque && this.isRotating) {
       this.masque.rotation.y += 0.01; 
     }
-  
+
     this.renderer.render(this.scene, this.camera);
   }
 
@@ -117,6 +112,4 @@ export class ModelComponent implements OnInit, AfterViewInit {
   toggleRotation(): void {
     this.isRotating = !this.isRotating;
   }
-
-  
-}
+} 
