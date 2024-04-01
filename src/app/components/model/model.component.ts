@@ -21,6 +21,10 @@ export class ModelComponent implements OnInit, AfterViewInit {
   isLoading = true;
   isRotating = true;
 
+
+  showContent = false;
+  buttonText = 'Voir plus';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -40,11 +44,20 @@ export class ModelComponent implements OnInit, AfterViewInit {
     this.renderer.setSize(width, height);
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.minPolarAngle = 0; // radians
-    this.controls.maxPolarAngle = Math.PI; // radians
+    this.controls.minPolarAngle = 0; 
+    this.controls.maxPolarAngle = Math.PI; 
     this.controls.update();
     this.animate();
   }
+
+
+  toggleContent() {
+    this.showContent = !this.showContent;
+    this.buttonText = this.showContent ? 'Voir moins' : 'Voir plus';
+  }
+
+
+
   loadModel(): void {
     var loader = new GLTFLoader();
     loader.load( '../../../assets/model3D/MasqueDogon.glb', ( gltf ) => {
@@ -54,7 +67,7 @@ export class ModelComponent implements OnInit, AfterViewInit {
       this.masque.position.x = -90; 
       this.scene.add(this.masque);
   
-      this.camera.position.set(0, 100, 450); // move the camera up
+      this.camera.position.set(0, 100, 450); 
       this.camera.lookAt(new Vector3(0, 0, 0));
   
       this.controls.target.copy(this.masque.position);

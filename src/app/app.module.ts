@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AcceuilComponent } from './components/acceuil/acceuil.component';
 import { ModelComponent } from './components/model/model.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AProposComponent } from './components/a-propos/a-propos.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     NavbarComponent,
     FooterComponent,
     AcceuilComponent,
-    ModelComponent
+    ModelComponent,
+    AProposComponent
   ],
   imports: [
     BrowserModule,
